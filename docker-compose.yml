@@ -1,0 +1,10 @@
+services:
+  my-app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - path: /app
+          action: rebuild
