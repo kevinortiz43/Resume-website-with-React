@@ -5,6 +5,10 @@ services:
     ports:
       - "3000:3000"
     develop:
-      watch:
-        - path: /app
-          action: rebuild
+     watch:
+      - action: sync+restart
+        path: .
+        target: /app
+        ignore:
+          - node_modules/
+          - .next/
