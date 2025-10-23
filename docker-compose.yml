@@ -1,5 +1,5 @@
 services:
-  my-app:
+  front-end:
     build:
       context: .
     ports:
