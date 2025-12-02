@@ -1,12 +1,13 @@
-import Footer from "@/components/Footer/footer";
-import Header from "@/components/Header/header";
+import React from "react";
 
-export default function Home() {
+
+import styles from "./home.module.css";
+export default function home() {
   return (
     <div>
-      <Header></Header>
-      <p>Hello world </p>
-      <Footer />
+      {/*  */}
+      Home
+     
     </div>
   );
 }
