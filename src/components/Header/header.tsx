@@ -5,7 +5,7 @@ import "./header.css";
 export default function Header() {
   return (
     <>
-      <section className="p-menu1">
+      {/* <section className="p-menu1">
         <nav id="navbar" className="navigation" role="navigation">
           <input id="toggle1" type="checkbox" />
           <label className="hamburger1">
@@ -22,7 +22,7 @@ export default function Header() {
             <Link href="/projects">projects</Link>
           </nav>
         </nav>
-      </section>
+      </section> */}
 
       <nav id="desktop-navigation">
         <div className="nav container"></div>
@@ -32,6 +32,7 @@ export default function Header() {
           <Link href="/canvas">Canvas</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/projects">projects</Link>
+
         </div>
       </nav>
     </>

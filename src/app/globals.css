@@ -14,3 +14,11 @@ body {
   background-color: var(--backgroundColor);
 }
 
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+  background-color: var(--primaryText);
+  clip-path: circle();
+}
+
