@@ -46,6 +46,13 @@ export default function Home() {
       model: 'TOC_Gladius',
       camera: { x: 0, y: -1.5, z: 6.5 },
       hdrPath: 'industrial_sunset_puresky_1k'
+    },
+     {
+      id: 'hardDrive',
+      title: 'Hard Drive',
+      model: 'hardDrive',
+      camera: { x: 0, y: -1.5, z: 6.5 },
+      hdrPath: 'industrial_sunset_puresky_1k'
     }
   ];
 
