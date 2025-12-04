@@ -3,15 +3,17 @@ import "./about.css";
 import professionalPicture from "@/Assets/professional-picture.jpg";
 import experienceIcon from "@/Assets/experience.png";
 import educationIcon from "@/Assets/education.png";
-
+import Image from "next/image";
 export default function about() {
   return (
     <>
       <section id="profile">
         <div className="profile-picture">
-          <img
+         <Image 
             src={professionalPicture.src}
             alt="kevin-ortiz-proffessional-picture"
+            height={400}
+            width={460}
           />
         </div>
 
