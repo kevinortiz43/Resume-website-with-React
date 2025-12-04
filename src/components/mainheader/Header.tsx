@@ -19,9 +19,9 @@ export default function MainHeader() {
           <li>
             <Link href="/contact">Contact</Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/canvas">Canvas</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

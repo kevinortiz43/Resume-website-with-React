@@ -1,7 +1,7 @@
 // app/page.tsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useThreeModelBuilder } from "@/components/modelView";
 import "./projects.css"
@@ -17,7 +17,6 @@ interface Project {
 export default function Home() {
   const router = useRouter();
   const { threeDimensionModelBuilder, openPage, cleanupAll } = useThreeModelBuilder();
-  const [initialized, setInitialized] = useState(false);
   const initializedRef = useRef(false);
   
   const projects: Project[] = [
@@ -54,6 +53,8 @@ export default function Home() {
     // Prevent multiple initializations
     if (initializedRef.current) return;
     
+    initializedRef.current = true; // Set this BEFORE loading to prevent race conditions
+    
     const timer = setTimeout(() => {
       projects.forEach(project => {
         threeDimensionModelBuilder(
@@ -68,18 +69,15 @@ export default function Home() {
           2,
           project.hdrPath || ''
         );
-      });
-      
-      initializedRef.current = true;
-      setInitialized(true);
-    }, 100); // Small delay to ensure DOM is ready
+      }); // <-- Fixed: removed the erroneous [] here
+    }, 100);
 
     // Cleanup on unmount
     return () => {
       clearTimeout(timer);
       cleanupAll();
     };
-  }, [threeDimensionModelBuilder, cleanupAll]);
+  }, []); // <-- Correct: empty dependency array for useEffect
 
   const handleOpenGitHub = () => {
     openPage('https://github.com/PogodaSoftware/main_frame');
@@ -96,7 +94,6 @@ export default function Home() {
       hdrPath: project.hdrPath || ''
     });
     
-    // Use Next.js router for internal navigation
     router.push(`/canvas?${params}`);
   };
 
@@ -114,11 +111,6 @@ export default function Home() {
                     aria-label={`Model of a ${project.title.toLowerCase()}`}
                     className="project-image"
                   />
-                  {!initialized && (
-                    <div className="loading-overlay">
-                      Loading...
-                    </div>
-                  )}
                 </div>
                 <h2 className="project-sub-title project-title">{project.title}</h2>
                 <div className="btn-container">
