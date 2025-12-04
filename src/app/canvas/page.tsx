@@ -1,10 +1,6 @@
-import React from "react";
-import styles from "./projectCanvas.module.css";
+// app/blender-projects/page.tsx
+import ModelViewer from '@/components/modelView';
 
-export default function projectCanvas() {
-  return (
-    <div>
-      <h1>canvas</h1>
-    </div>
-  );
+export default function BlenderProjectsPage() {
+  return <ModelViewer />;
 }
