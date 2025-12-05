@@ -1,9 +1,9 @@
-// components/modelView.tsx (or wherever your hook is)
+
 import { useRef, useCallback, useEffect } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { DRACOLoader } from "three/examples/jsm/Addons.js";
 import { HDRLoader } from "three/examples/jsm/Addons.js";
 
 interface ThreeScene {
@@ -40,8 +40,10 @@ export const useThreeModelBuilder = () => {
     ): void => {
       const modelKey = `${canvasId}_${modelPath}`;
 
-      // Check if model is already loaded OR currently loading
-      if (loadedModels.current.has(modelKey) || loadingModels.current.has(modelKey)) {
+      if (
+        loadedModels.current.has(modelKey) ||
+        loadingModels.current.has(modelKey)
+      ) {
         // console.log(
         //   `Model ${modelPath} on canvas ${canvasId} is ${
         //     loadedModels.current.has(modelKey) ? "already loaded" : "currently loading"
@@ -50,7 +52,6 @@ export const useThreeModelBuilder = () => {
         return;
       }
 
-      // Mark as loading immediately to prevent duplicate requests
       loadingModels.current.add(modelKey);
 
       let threeScene = scenes.current[canvasId];

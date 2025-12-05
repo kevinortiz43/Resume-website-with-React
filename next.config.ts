@@ -4,5 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: false,
   output: "standalone",
+
 };
 export default nextConfig;

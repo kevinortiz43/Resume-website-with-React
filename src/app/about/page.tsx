@@ -9,7 +9,7 @@ export default function about() {
     <>
       <section id="profile">
         <div className="profile-picture">
-         <Image 
+          <Image
             src={professionalPicture.src}
             alt="kevin-ortiz-proffessional-picture"
             height={400}
@@ -28,16 +28,17 @@ export default function about() {
                 />
                 <h3 className="Experience-tag">Experience</h3>
                 <p className="first-experience-paragraph">
-                  3 + years Software Developer
+                  {/* 3 + years  */}
+                  Software Developer
                 </p>
                 <br />
                 <p className="second-experience-paragraph">
-                  2 + years Quality Assurance Engineer
+                  {/* 2 + years Quality Assurance Engineer */}
                 </p>
                 <br />
 
                 <p className="third-experience-paragraph">
-                  3 + months DevOps Engineer
+                  {/* 3 + months DevOps Engineer */}
                 </p>
               </div>
 
@@ -53,12 +54,12 @@ export default function about() {
                 </p>{" "}
                 <br />
                 <p className="second-education-paragraph">
-                  Software Engineering training at Perscholas
+                  {/* Software Engineering training at Perscholas */}
                 </p>{" "}
                 <br />
                 <p className="third-education-paragraph">
-                  Quality Assurance training at FDM Group
-                </p>{" "}
+                  {/* Quality Assurance training at FDM Group */}
+                </p>
               </div>
             </div>
             <div className="text-container">
